@@ -32,4 +32,64 @@ ex: Objects that represents ar process or algoirthm don\'t occur in nature, yet 
 
 Object can vary in size and numbers. Thye can represent everything down to the hardware or up the entire app.How do we decie what should be an object
 
+Design patterns address this question ads well
+* Facade pattern: Describes how to represent complete subsystem as object
+* Flyweight pattern: describes how to support huge numbers of objects at the finest granularities 
 
+
+There are also other design patterns that describe specific ways of decomposing an object into smaller objects.
+
+* Abstract Factory and Builder pattters: Yield objects whose only preponsibilities are creating other objects
+* Visitor and Command patterns: Yield objects whose only reponsibilities are to implement a request on anothe5r object or group of objects
+
+## Specifying Object Interfaces
+
+Every operation declared by an object specifies the operation's name, the object it takes as parameters and the operation's return value This is known as the operation's signature.
+
+The set of all signatures defined by an object's operations is called the "interface" to the object.
+
+An object's interface characterizes the complete set of requests that can be sent to the object. 
+Any request that matches a signature in the object's interface may be sent to the object
+
+A **type** is a name used to denote a particular interface
+
+We say a type is a **subtype** of another if its interface contains the interface of its **supertype**. Usually, a subtype inheriting the interface of its supertype
+
+In OO systems, Objects are knwon only through their interfaces. An object's interface says nothing about its implementation. 
+
+When a request is sent to an object, the particular operation that's performed depends on both the request and the receiving object.
+
+Different boject that support identical requests may have different implementations of the operations that fulfill these requests.
+
+The run-time assocation of a request to an object and one of its operaiton is knwon as **dyunamic binding**
+
+Dynamic binding meants that issuring a request doesn't cojmmit you to a particular implementation until run-time
+
+This lets you substitute objects that have identical interfaces for each other at run-time. This is knonw as **polymorphism**.
+
+Deisgn patterns helpp you defie interfaces by id-ing their key elements and hte kinds of data that get sent across an interface. A design pattern might also tell you what not to put in the interface
+
+* Mmento pattern: This describes how eto encapsulate and save the interfal state of an object so that the object can be restored to that state later..
+
+Design pattenrs asl o specify relationships between interfaces. They often requrie some classes to have similar interfaces or they place constraints on the interfaces of some classes.
+
+* Decorator and Proxy pattern: They require the interfaces of the Decorator and Proxy objects to be identical to the decorated and proxied objects.
+* Visitor pattern: The visitor interface must reflect all classes of objects that visitors can visit
+
+## Specifying Object Implementations
+
+An object's implementations is dfeined by its **class**. The class specifies the objects's internal data and representation and defines the oeprations the object can perform
+
+Objects are created by instantiating a class. Thie Object is said to be instance of the class. THe process of instantiating a class allocated storage for the object's internal data (made up of instance variables) and assocated the operations with these  data.
+
+A dashed arrowhead line (think UML diagram) indicates a class that instantiates objects of antoher class. THe arrow points to the class of the instantiated object
+
+ex: Instantiator ------> instantiatee
+
+New classes can bew defined in terms of existing classes using class inheritance. When a subclass inherits from a parent class, it includes the defn of all the data and operations that the parent class defines.
+
+Objects that are instances of hte subclass will contain all data defined yb hte subclass and its parent classes, and they'll be able to perform all operations defiend by this subclass and its parents. We indicate the subclass relationship with a vertical line and a triangle. (Need a diagram for this)
+
+**Abstrcat class** is a class whose main purpose is to define a common interface for its subclasses. An abstract class will defer some or all of its implementation to operations defined in subclasses; hence  it cannot be instantiated.
+
+operations that an abstract class declares but doesn't implement are called **abstract operations**. Classes that aren't abstract are called concrete classes.
