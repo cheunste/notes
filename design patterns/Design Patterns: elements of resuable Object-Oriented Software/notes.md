@@ -90,6 +90,18 @@ New classes can bew defined in terms of existing classes using class inheritance
 
 Objects that are instances of hte subclass will contain all data defined yb hte subclass and its parent classes, and they'll be able to perform all operations defiend by this subclass and its parents. We indicate the subclass relationship with a vertical line and a triangle. (Need a diagram for this)
 
-**Abstrcat class** is a class whose main purpose is to define a common interface for its subclasses. An abstract class will defer some or all of its implementation to operations defined in subclasses; hence  it cannot be instantiated.
+**Abstract class** is a class whose main purpose is to define a common interface for its subclasses. An abstract class will defer some or all of its implementation to operations defined in subclasses; hence  it cannot be instantiated.
 
-operations that an abstract class declares but doesn't implement are called **abstract operations**. Classes that aren't abstract are called concrete classes.
+operations that an abstract class declares but doesn't implement are called **abstract operations**. Classes that aren't abstract are called **concrete classes**.
+
+Subclasses may overwrite an operation defiend by its parent class. Overriding gives subclasses a chance to handle requests instead of hteir parent classes. Class inheritance lets you define a class simply be extending other classes. 
+'
+A **mixin class** is a class that's intended to provide an optinal interface or functionality to other classes. It's similar to an bastrct class (in that its not intedned to be instantiated), buty require multiple inheritance
+
+## Class vs. Interface Inheritance
+
+It's important to understand the difference between an object's class and its type
+
+An object's aclass defines how the object is implemented. The class defines the object's internal state and the implementation of its operations. 
+
+An objects's type only referes to its interface, the set of requests to which it can respond An object can have many types, and objects of different classes can have the same type
