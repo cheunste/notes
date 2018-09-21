@@ -167,11 +167,12 @@ h1, .class, #id{
 
    Hirearchy doesn't matter in this case
 
-   || Item | Specificity||
-   || Style Attribute | Most specific, let's say 1000||
-   || ID | 2nd most specific, let's say 100 ||
-   || Class ,psuedo-class, attribute | 3rd most specific, let's say 10||
-   || Elements | Least specific, let's say 1 ||
+   | Item | Specificity |
+   | --- | --- |
+   | Style Attribute | Most specific, let's say 1000|
+   | ID | 2nd most specific, let's say 100 |
+   | Class ,psuedo-class, attribute | 3rd most specific, let's say 10|
+   | Elements | Least specific, let's say 1 |
 
    If all else fails, try adding up the selector rules and see what is taking precise
    
