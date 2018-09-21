@@ -50,8 +50,8 @@ As of 2018, We\'re using CSS 3. This version introduce stuff like
     There are four types of gradients...
     1) linear-gradient
     2) radial-gradient
-    3)
-    4)
+    3) ???
+    4) ???
 
     You need to implmement a default color in case a browser doesnm't support gradient.
     You mightr want to read the docs on this if you need it
@@ -61,6 +61,7 @@ As of 2018, We\'re using CSS 3. This version introduce stuff like
     * You can add this on any element on the page
     * You can also add some other property like blur radius and shadow color
     ex: 
+
     ```css
     h1{
         text-shadow: 2px 2px 5px black;
@@ -86,6 +87,7 @@ As of 2018, We\'re using CSS 3. This version introduce stuff like
     ## Borders
 
     * This is pretty straight forward, but the docs should have more details
+
     ```css
 
     .border{
@@ -100,6 +102,7 @@ As of 2018, We\'re using CSS 3. This version introduce stuff like
     For example, if you have a list and another list inside that list, you can target that inner list as well. You can do this via the '>' and you can cascade it down to multiple levels if needed
     
     ex:
+
     ```html
         <ul>
         <li>Pikachu</li>
@@ -112,6 +115,7 @@ As of 2018, We\'re using CSS 3. This version introduce stuff like
         <li>Rowlet</li>
         </ul>
     ```
+
     ```css
     ul li{
     color: blue;
@@ -167,13 +171,64 @@ h1, .class, #id{
 
    Hirearchy doesn't matter in this case
 
-   | Item | Specificity |
-   | --- | --- |
-   | Style Attribute | Most specific, let's say 1000|
-   | ID | 2nd most specific, let's say 100 |
-   | Class ,psuedo-class, attribute | 3rd most specific, let's say 10|
-   | Elements | Least specific, let's say 1 |
+   | Item | Specificity | Weight |
+   | --- | --- | :---: |
+   | Style Attribute | Most specific| 1000 |
+   | ID | 2nd most specific | 100 |
+   | Class ,psuedo-class, attribute | 3rd most specific | 10 |
+   | Elements | Least specific | 1 |
 
    If all else fails, try adding up the selector rules and see what is taking precise
    
 ## Font and Text styles
+
+- There are 3 things we can do with fonts
+
+    1) Font families
+    2) Font Styles
+    3) Font size
+
+### Font Families
+
+ * Most of the time, it is either added in the body or the html tag.
+ * This will set the standard for the entire page
+ * Additional fonts can be downloaded from the web
+
+### Font Styles
+
+   * THese are things like Italic, bold, etc. Things that well, transform your text
+   * There are also things like text aligns which changes the formatting of your text
+   * There are also a bunch of other stuff that you might not use, such as line-height. You might want to 
+    google some answers, because I don't see myself using this unless.
+
+### Font Size
+
+ * Fonts can be changed via pixel size **px**. This is a hard limit
+ * You can also use **rem**, which is root element. This is equal to the computred value of __font-size__ on the root elelment
+ * For example, 1rem is equal to the font size of the html element
+ * You can also use **em**, which has the same same consept, but instead of root element, it is just the element
+ *
+
+ ## Google Font
+
+ This allows you to use over 800 font styles
+ [Use this link](developers.google.com/fonts) and find one you like. 
+
+ However, just use one or two for a website, or else it will look like something that belongs to r/crappydesign 
+ 
+ Of course, you have to reference the link in your HTML page and only then can you use the stylesheet in CSS
+
+ ## CSS Images
+
+ You can manipulate how an image is presented in CSS. for example, adding round corners (border-radius) or showing the image in a circle
+
+ You can also resize the image if the browser gets too small (this is knonw as responsive image). Usually this is needed due to mobile 
+ This can be done by using **max-width** and ** height: auto**
+
+ There is also an opacity optino if you want to make an image transparent
+
+## Padding & Margin
+
+
+
+
