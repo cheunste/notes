@@ -1,6 +1,6 @@
 # CSS Review
 
-As of 2018, We\'re using CSS 3. This version introduce stuff like
+As of 2018, We're using CSS 3. This version introduce stuff like
 * animation
 * mobile responsive
 
@@ -97,11 +97,11 @@ As of 2018, We\'re using CSS 3. This version introduce stuff like
 
 ## CSS Combinators
 
-    You can work with child/decendent selectors as well
+You can work with child/decendent selectors as well
 
-    For example, if you have a list and another list inside that list, you can target that inner list as well. You can do this via the '>' and you can cascade it down to multiple levels if needed
+For example, if you have a list and another list inside that list, you can target that inner list as well. You can do this via the '>' and you can cascade it down to multiple levels if needed
     
-    ex:
+ex:
 
     ```html
         <ul>
@@ -229,6 +229,10 @@ h1, .class, #id{
 
 ## Padding & Margin
 
+**Margin**: Takes an element and create space __around__ the element
 
+**Padding**: Create space from within the element. Think of this as giving additional space to a text in a button 
+
+For either margin or padding, you can specify top, right, bottom, left. aka. Clockwise
 
 
