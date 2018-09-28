@@ -24,15 +24,14 @@ As of 2018, We're using CSS 3. This version introduce stuff like
     * External Style Sheet. Pretty much use an extenarl *.CSS file. That's it. But besure to link it to the HTML using <link>
 
 ## Element, ID and Class Selectors
-
-    * There are three methods to style elements on HTML page
-    * 1) Grab by class
+    - There are three methods to style elements on HTML page
+    - 1) Grab by class
         * Requires that an HTML element uses the class property. Ex: <div class="square"></div>
         * In the CSS file, you use the "." to denote a class indicator. Ex .square{ width: 100px;}
-    * 2) By the HTML element.
+    - 2) By the HTML element.
         * Ex:   body{ background-color: #cc99ff;}
         * Note that you can assign multiple properties to tag elements
-    * 3) via ID
+    - 3) via ID
         * Same thing as class, but using "id" instead of "class" and a "#" instead of a ".".
         * however, IDs MUST be unique, so don't overuse it
 
