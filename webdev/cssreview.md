@@ -236,3 +236,20 @@ h1, .class, #id{
 For either margin or padding, you can specify top, right, bottom, left. aka. Clockwise
 
 
+## Mobile Responsive
+
+ This pretty much means make the webpage responsive when the browser size is small
+
+ You can do this with **media query** (using @media in the css file)
+
+ ex:
+ ```CSS
+@media screen and (max-width: 680ox){
+     ul.topnav li: (:noth-child(1)){
+        display:none;
+    }
+}
+ ```
+
+ However, you might want to keep in mind that it is MUCH more difficult to make a site mobile compatible if you completely finished the desktop first. What you want to do
+ is to develop the mobiel at the same time as the dDesktop, so you can do things section by section
