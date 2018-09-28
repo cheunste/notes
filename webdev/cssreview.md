@@ -235,6 +235,8 @@ There is also an opacity optino if you want to make an image transparent
 
 For either margin or padding, you can specify top, right, bottom, left. aka. Clockwise
 
+Note that if you're using margin auto, that means it will take the width of the screen and evenly divide your space
+
 
 ## Mobile Responsive
 
@@ -256,4 +258,12 @@ For either margin or padding, you can specify top, right, bottom, left. aka. Clo
 
  That being said, you might need javascript for onclick responses and what not
 
+## Box Shadows
+
+This isn't an element I typically use, so here's some notes on it. A box shadow is well...something that gives a shadow to an element
+The syntax is something like box-shadow: [horizontal length] [vertical length] [blur radius] [spread radius] [color]
+
+However, if you use the rgba for color, that gives you an opacity
+
+There is a website that actually does this for you. Look up CSS Shadow Generator
 
