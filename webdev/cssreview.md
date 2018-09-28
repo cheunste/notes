@@ -255,3 +255,5 @@ For either margin or padding, you can specify top, right, bottom, left. aka. Clo
  is to develop the mobiel at the same time as the dDesktop, so you can do things section by section
 
  That being said, you might need javascript for onclick responses and what not
+
+
