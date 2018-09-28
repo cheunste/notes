@@ -253,3 +253,5 @@ For either margin or padding, you can specify top, right, bottom, left. aka. Clo
 
  However, you might want to keep in mind that it is MUCH more difficult to make a site mobile compatible if you completely finished the desktop first. What you want to do
  is to develop the mobiel at the same time as the dDesktop, so you can do things section by section
+
+ That being said, you might need javascript for onclick responses and what not
