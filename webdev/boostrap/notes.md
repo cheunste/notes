@@ -25,7 +25,8 @@
 - Note that Boostrap's css class have several media queries already built for us. You don't really need to look into it in depth.
 
 ## The Grid System
-- When using Boostraip, you need to use their container classes
+- When using Boostraip, you need to use their grid system
+- To use grid, you need to entrap items in a container class 
     * container
     * container-fluid: 
 
@@ -36,10 +37,17 @@ ex:
 ```HTML
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-6">
-        </div>
+        <div class="col-sm-6"> Col 1</div>
+        <div class="col-sm-6"> Col 2</div>
     </div>
+    <div class="row">
+        <div class="col-sm-6 col-lo-4"> Col 3</div>
+        <div class="col-sm-6 col-lo-4"> Col 4</div>
+        <div class="col-sm-6 col-lo-12"> Col 5</div>
+    </div>
+
 </div>
 ```
 
+- The above will change layout depending on how big the browser is and in the case of Col 3,4 or 5, they might colapse into multiple rows taking up the entire screen. Very helpful
 
