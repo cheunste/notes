@@ -95,3 +95,14 @@ sass -watch sass.styles.sass:styles.css
 
 - In each of the above folders, create other directories if needed. 
 - This way, files in other parts of a project is isolated from each other. 
+
+- However, keep in mind that 
+
+### SASS Partials
+ - There is a problem though. If you attempt to run the sass preporcessor to all five of the folders above, you'll end up with a mess as all sass files will generate a bunch of other files
+  
+  sass --watch SASS:CSS
+
+### SASS Variables and Imports
+
+    - 
