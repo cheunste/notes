@@ -8,6 +8,6 @@ cd "/Users/stephen/notes"
 timestamp=$(date "+%Y-%m-%d %H:%M:%S")
 echo $timestamp
 
-git add .
+git add -A
 git commit -m "$timestamp"
 git push origin master

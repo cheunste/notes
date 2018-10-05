@@ -57,3 +57,41 @@ sass -watch sass.styles.sass:styles.css
 - In SASS, you can use variables to make your work easier
 - It goes like $font-color: blue and can be used anywhere in file. SImple enough
 
+- mixins are kinda like python functions in the sense that
+    * They take several parameters
+    * They use indents 
+
+- There are two ways of defining mixins:
+    * 1) Via '='
+    ex: 
+    ```SASS
+    +shaping($height,$width, $rad)
+        height:$height
+        width: $width
+    ```
+
+    * 2) Via "@mixin"
+    ```SASS
+    @mixin transform($property){
+
+    }
+    ```
+
+## Compiling SASS
+    - There are a few ways to compile SASS to CSS
+     * Manual compile. This is using "sass styles.sass:styles.css"
+     * Auto compile. This is adding the 'watch' flag. "sass -watch styles.sass:styles.css"
+     * An external software
+     * Using packages available with your text editors
+
+## Sass Structure
+
+ - SMACSS (Scalable and MOdular Architecture for CSS). This is a architecture design where folders in a project is broken into five pieces
+    * Base
+    * Layout
+    * Modules
+    * State
+    * Theme
+
+- In each of the above folders, create other directories if needed. 
+- This way, files in other parts of a project is isolated from each other. 
