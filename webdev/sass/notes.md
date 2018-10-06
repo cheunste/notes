@@ -78,7 +78,9 @@ sass -watch sass.styles.sass:styles.css
     ```
 
 ## Compiling SASS
-    - There are a few ways to compile SASS to CSS
+
+- There are a few ways to compile SASS to CSS
+
      * Manual compile. This is using "sass styles.sass:styles.css"
      * Auto compile. This is adding the 'watch' flag. "sass -watch styles.sass:styles.css"
      * An external software
@@ -109,3 +111,9 @@ sass -watch sass.styles.sass:styles.css
 
     - Structure wise, because the number of variables you have can be used in multiple places, you might be better off with putting all the variables into a partial sass file (let's call it _variable.sass)
     - You can also import external sass files and partial sass files. However, you need to import first before using and this principle applies to other imports as well. So if another sass files calls for a variable which you didn't import until after the line, then it wouldn't work
+
+
+## Sass Extends
+
+   - Have you ever tried to extend a class in Java? Same concept, but with different syntax basically.  
+   - Probably the only time you'll ever extend a class instead of implementing a class.
