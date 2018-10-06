@@ -103,6 +103,9 @@ sass -watch sass.styles.sass:styles.css
   
   sass --watch SASS:CSS
 
+  - You can fix this by using SASS partials. To declare a partial file, you need to use the "_" character in front of the sass file
+
 ### SASS Variables and Imports
 
-    - 
+    - Structure wise, because the number of variables you have can be used in multiple places, you might be better off with putting all the variables into a partial sass file (let's call it _variable.sass)
+    - You can also import external sass files and partial sass files. However, you need to import first before using and this principle applies to other imports as well. So if another sass files calls for a variable which you didn't import until after the line, then it wouldn't work
