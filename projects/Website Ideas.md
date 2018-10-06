@@ -1,9 +1,9 @@
 # Website Ideas
 
-This is a collection of project ideas you have. They are organized by either work or personal
+This is a collection of web basedproject ideas you have. They are organized by either work or personal
 
-*  ['Work']()
-* ['Persona']()
+*  [Work](# Work)
+* [Persona](# Personal)
 
 ### Work
 
@@ -14,3 +14,4 @@ This is a collection of project ideas you have. They are organized by either wor
 
 * Some sort of central automation server for 'stuff'. 
 * I've always wanted to do something Pokemon related...but what exactly?
+*
