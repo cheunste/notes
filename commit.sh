@@ -8,6 +8,8 @@ cd "/Users/stephen/notes"
 timestamp=$(date "+%Y-%m-%d %H:%M:%S")
 echo $timestamp
 
+cp $HOME/.vimrc vim/
+
 git add -A
 git commit -m "$timestamp"
 git push origin master
