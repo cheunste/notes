@@ -8,4 +8,3 @@ set cursorline
 set showmatch
 set clipboard=unnamed
 let python_highlight_all=1
-execute pathogen#infect()
