@@ -1,0 +1,8 @@
+# Scratch Notes
+
+
+Because you sometimes use Chinese arduinos (because they're cheapish) they might not work with your  terminal.
+
+check /dev/ and see if you see any changes and then just create a soft link and map it to tty.wch
+
+https://www.stm32duino.com/viewtopic.php?t=363
