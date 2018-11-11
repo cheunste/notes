@@ -27,4 +27,14 @@ With the DDR configured for input, setting the PORT bits on a pin will control w
 
 The PIN register addresses are where you read the digital voltage values for each pin that’s configured as input. Each PINx memory location is hooked up to a comparator circuit that detects whether the external voltage on that pin is high or low. You can’t write to them, so they’re not really memory, but you can read from the PINx registers like a normal variable in your code to see which pins have high and low voltages on them.
 
- All of these HW registers are readable, so you can always query the input/output direction or state of any pin at any time.
+- All of these HW registers are readable, so you can always query the input/output direction or state of any pin at any time.
+
+ - The PINx aren't writable because they just reflect the voltage values on the corresponding pin
+
+ # Configuring output DDRs, PORTs
+
+- To output a voltage on a given pin, you'll need to
+
+1. Configure the relevant pin for output mode by writing to the data-direction register (DDR).
+
+2. Assign a high or low value to the individual pin by writing to the PORT hardware register.
