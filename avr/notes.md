@@ -57,3 +57,5 @@ Involves three different stages
 1) Configuring the AVR
 2) Installing serial terminal software on your computer
 3) Connecting them together
+
+### Making the USART library
