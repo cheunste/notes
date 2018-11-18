@@ -15,7 +15,9 @@ Almost all of hte pins on a AVR chip are configurable either as input or output 
 
 ## DDRx data-direction registers (port x)
 
-These registers control whether each pin is configured for input or outputthe data direction. After a reset or power-up, the default state is all zeros, corresponding to the pins being configured for input. To enable a pin as output, you write a one to its slot in the DDR.
+These registers control whether each pin is configured for input or outputthe data direction. After a reset or power-up, the default state is all zeros, corresponding to the pins being configured for input.
+- To enable a pin as output, you write a one to its slot in the DDR.
+- To enable a pin as input, you write a zero to its slot in the DDR.
 
 ## PORTx port x data registers
 
@@ -38,3 +40,20 @@ The PIN register addresses are where you read the digital voltage values for eac
 1. Configure the relevant pin for output mode by writing to the data-direction register (DDR).
 
 2. Assign a high or low value to the individual pin by writing to the PORT hardware register.
+
+## UART/USART
+
+**USART**: Universal Synchronous and Asynchronous Receiver and Transmitter
+
+Note that AVR's serial HW is capable of running both Synchronous (using a clock) and Async mode (no clock)
+
+**baud rate**: This pretty much means how often voltage is allowed to change on the line and how often
+the receiver needs to read in a new voltage
+
+### Setting up Serial communication
+
+Involves three different stages
+
+1) Configuring the AVR
+2) Installing serial terminal software on your computer
+3) Connecting them together
