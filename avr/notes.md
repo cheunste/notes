@@ -16,12 +16,17 @@ Almost all of hte pins on a AVR chip are configurable either as input or output 
 ## DDRx data-direction registers (port x)
 
 These registers control whether each pin is configured for input or outputthe data direction. After a reset or power-up, the default state is all zeros, corresponding to the pins being configured for input.
+
+If you haven't configured DDR yet, it is in input mode by default. However, pull-up resistor is not enabled by default. To do this, you need to set the bit on PORTx (ie PORTD |= (1<<PD2);)
+
 - To enable a pin as output, you write a one to its slot in the DDR.
 - To enable a pin as input, you write a zero to its slot in the DDR.
 
 ## PORTx port x data registers
 
 When the DDRx bits are set to one (output) for a given pin, the PORT register controls whether that pin is set to logic high or low (i.e., the VCC voltage or ground). Switching between these voltage levels could, for instance, turn on and off attached LEDs.
+
+You also use PORTx to set internal pull-up resistors on AVR
 
 With the DDR configured for input, setting the PORT bits on a pin will control whether it has an internal pull-up resistor attached or whether it’s in a “hi-Z” (high-impedance) state, effectively electrically disconnected from the circuit, but still able to sense voltage. We’ll talk more about this in Chapter 6.
 
@@ -93,3 +98,39 @@ If you ever need to create your own module, do the following
 1) Copy the module.h and module.c file into your project directory
 2) #include module.h at the top of your code
 3) Add the .c file to your make file as extra source to be compile
+
+## Digital logic
+
+- This is used for shit like pressing a button and sending the signal to high or low
+- You have to set up the AVR's DDR and PORT to be on input mode and set for internal pull up
+- To read the value of a single bit in the register, you use bitwise AND
+
+ex: reading PD2
+//Note that ( 1 << 2) creates 00000100
+//So the below will get you the status of PD2
+if (PIND & (1 << 2)){
+  doStuff();
+}
+
+### Changing States
+
+- Depending on application, you might have an event that triggers whenever a button is pushed.
+- However, you don't want the event to trigger on and off when the button is held.
+- In this case, you need to have an additional statement to determine whether the button is held or not and then depending on that condition, trigger the event or not
+
+### Debouncing
+
+- Sometimes, buttons get stuck and the contact is still intact for a few ms and as a result, your event is getting triggered even though you're not pressing a button
+- To solve this, you can just wait a few ms, or add a cap between the two contacts of a switch to force the voltage to rise slowly. But...it is cheaper to do it in code
+
+### Push Button Checklist
+
+- Do the following if you have plans on using a push button in your circuit
+
+1) Set DDR for input. ie (DDRD &=- ~(1 << PD2))
+2) Set the internal pull-up if you don't have a physical pull up (ie PORTD |=(1 << PD2))
+3) Read the button voltage in your code either by...
+  - if statement (ie if(!(PIND & (1 <<PD2))) )
+  - using a macro (ie bit_is_clear(PIND, PD2))
+4) Think about whether you want something to happen while the button is pressed or when it becomes pressed. Store the previous state and test for changes if needed
+5) If you're trying to detect a single button-press event, consider debouncing and wait a few ms and test if the btn is still pressed
