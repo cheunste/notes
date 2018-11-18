@@ -134,3 +134,25 @@ if (PIND & (1 << 2)){
   - using a macro (ie bit_is_clear(PIND, PD2))
 4) Think about whether you want something to happen while the button is pressed or when it becomes pressed. Store the previous state and test for changes if needed
 5) If you're trying to detect a single button-press event, consider debouncing and wait a few ms and test if the btn is still pressed
+
+## Timer/Counter Intro
+
+Timer and counters are useful if you need to do multiple things at the same time without using delay functions that waste CPU cycle
+
+What we need is a clock that we can use as a timebase and a counter that'll count up a certain number of clock ticks for us
+
+How it works is kinda long.
+
+Input arrives from either the system clock (or external source) connected to an input pin. This way, the same HW can be used as a timer or a generic counter.
+
+The current count is stored in an internal timer/counter register (TCNTn)
+
+Your code read the coutn from the TCNT register, which yields the current count values.
+
+But if you need to know when a certain count value is reached, you can compare the count value in the Output Compare Register (OCRn) and with this, you can store the value you'ld like for an elapsed time, a freq or a duty cycle in the OCRn and the timer reigster will take care of the rest
+
+As the counter is counting, and the compare unit is comparing the coutn value to your set value, if/when the compare value is reached, a compare event triggers the waveform generator, which does different things depending on the waveform mode and output mode
+
+Waveform Gneerator can be configured to generate three main types of output: counter, timer or PWM
+
+Whether you want pins set, cleared or toggled is determined by the output modes
