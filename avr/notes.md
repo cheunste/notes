@@ -50,6 +50,13 @@ Note that AVR's serial HW is capable of running both Synchronous (using a clock)
 **baud rate**: This pretty much means how often voltage is allowed to change on the line and how often
 the receiver needs to read in a new voltage
 
+### Using USART
+
+1) Choose a baud rate (by defining BAUD) and write the appropriate values to the baud rage registers UBRRL and UBRRH
+2) Enable the serial receive and transmit register bits
+3) If transmitting, wait until the HW is ready and then load your byte data into UDR0. The AVR's HW handles everything else automatically
+4) If you're waiting for data, check the data-received bit and then read the data out of UDR0. Reading UDR0 autoamtically clears the data-recieved bit, and the AVR gets ready for the next received byte
+
 ### Setting up Serial communication
 
 Involves three different stages
@@ -58,4 +65,31 @@ Involves three different stages
 2) Installing serial terminal software on your computer
 3) Connecting them together
 
-### Making the USART library
+### datasheet
+
+Like everything else in life, someone have to have code the library you're using.
+If you need to make changes to the UART, or you're forced to make your own UART module, you need to refer to the uC's
+UART section. never forget, the datasheet is your friend
+
+### Other uses for USART
+
+- USART can have many different uses besides communicating with your computer such as
+
+* debugging
+* Using LCD and VFD displays
+* Dataloggign
+* Integrating card-readers or RFID
+* Sending data via radio protcol
+
+- The USART library provided is developed from the datasheet. So if you use a different uC, then you'll most likely have to review the datasheet
+
+
+## C Files and Header Files
+
+You use header files for defining constants and function prototypes (essentually functions wihtout the code )
+
+If you ever need to create your own module, do the following
+
+1) Copy the module.h and module.c file into your project directory
+2) #include module.h at the top of your code
+3) Add the .c file to your make file as extra source to be compile
