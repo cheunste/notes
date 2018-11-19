@@ -156,3 +156,26 @@ As the counter is counting, and the compare unit is comparing the coutn value to
 Waveform Gneerator can be configured to generate three main types of output: counter, timer or PWM
 
 Whether you want pins set, cleared or toggled is determined by the output modes
+
+### Waveform Generation Modes
+
+When you're configuring the timer/counter HW, the first thing you need to do is what mode of oepration you want the timer/counter operating in
+
+**Normal Mode**: In this mode, counter counts up until overflow @ 255 (2^8) or 65535 (2^32). You use this mode most when you're counting clicks, timing an event or clearing and reading TCNT from your code
+
+**CTC Mode**: Clear Timer or Compare Match mode. In this mode, counter resets itself automatically when reaches the value stored in the OCRnA register instead of waiting until it hits 255 or 65535. This is used when we want to set the timer/counter to repeat a given frequency
+
+### Clock scaling
+
+If you don't set a clock prescaler, the default is for the timer to be stopped.
+
+If you need audio frequencies in the range of 100-800 Hz and the CPU clock starts out at 1MHz, you clearly need to divide it down before use
+
+In the datasheets, there are recommended prescales for desired frequencies
+
+When configuring timer/counter, the important points to remember aren
+
+- SEt the waveform mode to either Normal mode or CTC mode by setting the appropriate waveform mode bitwise
+- Select the clock prescaler speed. You **must** set these bits because the default value leaves the timer/counter prescaler unconnected (not running)
+- OPtionaly, select an output mode if you like to set, clear or toggle output pins from your timer/counters
+- Instead of togglign pins directly, you can enable an interrupt to trigger on comapre match
