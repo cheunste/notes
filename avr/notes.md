@@ -167,15 +167,28 @@ When you're configuring the timer/counter HW, the first thing you need to do is 
 
 ### Clock scaling
 
-If you don't set a clock prescaler, the default is for the timer to be stopped.
+If you don't set a clock prescaler, but enabled the timer, the default is for the timer to use no prescaling. Without prescaling, the timer will be using its default clock.
 
-If you need audio frequencies in the range of 100-800 Hz and the CPU clock starts out at 1MHz, you clearly need to divide it down before use
+So if you have a ATmega 328 with a 16MHz clock, it goes through one clock cycle every 1/(16*10^6) seconds (or 0.0625us) and with a 16 bit timer (65535), the internal service routine (ISR) will trigger in 0.0041s (65535 * 0.0625u)
+
+**By using a prescaler, allows you to divide your clock signal by various powers of two, thus increasing your timer period**
+
+An usage for this would be audio frequencies in the range of 100-800 Hz and the CPU clock starts out at 1MHz, you clearly need to divide it down before use
 
 In the datasheets, there are recommended prescales for desired frequencies
 
-When configuring timer/counter, the important points to remember aren
+### Summary
+
+When configuring timer/counter, the important points to remember are:
 
 - SEt the waveform mode to either Normal mode or CTC mode by setting the appropriate waveform mode bitwise
 - Select the clock prescaler speed. You **must** set these bits because the default value leaves the timer/counter prescaler unconnected (not running)
 - OPtionaly, select an output mode if you like to set, clear or toggle output pins from your timer/counters
 - Instead of togglign pins directly, you can enable an interrupt to trigger on comapre match
+
+
+In case you need to use a timer, do the following
+
+1) Find the Timer Registers in the datasheet (TCCR1A/B)
+2) Find your desired clock cylce
+3) Set CS10 to CS12 registers depending on the time you want. Look in the datasheet
