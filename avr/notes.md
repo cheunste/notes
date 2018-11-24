@@ -192,3 +192,14 @@ In case you need to use a timer, do the following
 1) Find the Timer Registers in the datasheet (TCCR1A/B)
 2) Find your desired clock cylce
 3) Set CS10 to CS12 registers depending on the time you want. Look in the datasheet
+
+## PWM (Pulse Width Modulation)
+
+In essence, PWM is a technique where you get a partly on analog output from switching a digital output fast enoug hso that whatever device you're driving can't react to the individual on-off pulses, but only to the average value.
+
+There are two parameters we need to specify in order to use PWM.
+
+1) **Duty Cycle**: percentage of the cycle time that is spent in the on state  
+2) **PWM frequency**: The frequency with which we go through a single cycle. Usually chosen only once at the begining of the program
+
+PWM frequency should be fast enough that whatever system we are controlling doesn't have time to react to each pulse, but only the average value. How fast? That depends on the application and tolerance for **ripple**  
