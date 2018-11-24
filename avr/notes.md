@@ -206,3 +206,24 @@ PWM frequency should be fast enough that whatever system we are controlling does
 
 For motors, PWM frequency should be slightly above 20 kHz (human hearing).
 For audio, an even higher PWM frequency is needed
+
+### PWM Timer Config Checklist
+
+1) Decide on which timer you use. This depends on how many bits of resolution you need.
+  - Timer 0 or 2 is for 8-bit resolution
+  - Timer1 is for 16-bit resolution
+2) Decide which mode you need. Normal, PWM, fast PWM, etc.
+  - Look under "Waveform Generation Mode Bit Description" in the datasheet
+  - Counting or timing? You want Nomral Mode
+  - Using the timer as a timebase or frequency generator. You want CTC Mode (most likely)
+  - Using the timer for PWM? Fast PWM Mode or static PWM frequency? Either way, set the WGMnX bits in TCCRnA or TCCRnB (see datasheet)
+
+3) Want direct output to the pins? Set COMxA and COMxB in TCCRnA
+4) Determine which clock speed divisor you need and set it with the CSnx bits in TCCRnB
+5) If you're using a compare value, set a default value in 0CRnA and/or OCRnB
+  - Don't forget to set corresponding DDR to output mode when you want the pins to output the PWM signal
+6) Using interrupts with your timers?
+  - Enable counter overflow interrupt (if using Nomral mode) with bit TOIEn in TIMSKn
+  - Enable output comapre interrupt (if using PWM or CTC modes) by setting OCIEnA, OCIEnB in TIMSKn
+  - Don't forget to enable global inetrrupts via sei()
+  - Also write your ISR (Interrupt service routines)
