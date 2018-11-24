@@ -203,3 +203,6 @@ There are two parameters we need to specify in order to use PWM.
 2) **PWM frequency**: The frequency with which we go through a single cycle. Usually chosen only once at the begining of the program
 
 PWM frequency should be fast enough that whatever system we are controlling doesn't have time to react to each pulse, but only the average value. How fast? That depends on the application and tolerance for **ripple**  
+
+For motors, PWM frequency should be slightly above 20 kHz (human hearing).
+For audio, an even higher PWM frequency is needed
