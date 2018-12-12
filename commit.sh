@@ -10,6 +10,8 @@ echo $timestamp
 
 cp $HOME/.vimrc vim/
 
+git pull
+
 git add -A
 git commit -m "$timestamp"
 git push origin master
