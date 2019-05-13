@@ -7,6 +7,12 @@ avrddude -p m168p -c usbtiny
 Editing the make file makes this a lost easier, if you have it in the make makefile
 you can then enter make flash and it should compile
 
+If your Makefile is complete with all the necessary settings (usually just the ISP and the uC type) you can use
+
+make flash 
+
+in the terminal to compile and flash it.
+
 # Configuring the makefile
 
 MCU
